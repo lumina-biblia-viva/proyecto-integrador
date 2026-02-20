@@ -49,6 +49,7 @@ Desarrollar un sistema RAG funcional que:
 
 ## Estructura del Repositorio
 
+```
 proyecto-integrador/
 │
 ├── README.md # Este documento
@@ -65,7 +66,7 @@ proyecto-integrador/
 │ └── .gitignore
 │
 └── lumina-ui/ # Frontend Angular
-
+```
 
 ---
 
