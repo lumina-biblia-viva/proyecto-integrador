@@ -1,0 +1,58 @@
+site_name: lumina-biblia-viva
+site_description: Lumina es un herramienta basada en Inteligencia Artificial para atender a las necesidades espirituales de la comunidad cristiana
+site_author: Steven Brutscher
+site_url: http://127.0.0.1:8000/
+
+# Repository
+# repo_name:
+# repo_url:
+
+nav:
+  - Home:
+    - Overview: index.md
+    - Contributing: contributing.md
+    - Code of Conduct: code_of_conduct.md
+    - Changelog: changelog.md
+    - Coverage report: coverage.md
+    - Security: security.md
+    - License: license.md
+  - Usage:
+    - Requirements: requirements.md
+    - Generating a project: generate.md
+    - Working on a project: work.md
+    - Updating a project: update.md
+  - Architecture Decision Records (ADRs):
+    - Overview: "adr/index.md"
+    - ADR0001 - Architecture Decision Record (ADR) log: "adr/0001-record-architecture-decisions.md"
+  - Glossary: glossary.md
+
+# check Diátaxis framework at https://diataxis.fr/
+#  - Tutorials: tutorials.md
+#  - how-to: how-to-guides.md
+#  - references: reference.md
+#  - explanation: explanation.md
+
+theme:
+  name: material
+  palette:
+  - media: "(prefers-color-scheme)"
+    toggle:
+      icon: material/brightness-auto
+      name: Switch to light mode
+  - media: "(prefers-color-scheme: light)"
+    scheme: default
+    primary: teal
+    accent: purple
+    toggle:
+      icon: material/weather-sunny
+      name: Switch to dark mode
+  - media: "(prefers-color-scheme: dark)"
+    scheme: slate
+    primary: black
+    accent: lime
+    toggle:
+      icon: material/weather-night
+      name: Switch to system preferenc
+
+extra_css:
+- assets/css/custom.css
