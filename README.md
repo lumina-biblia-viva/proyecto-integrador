@@ -47,7 +47,7 @@ Desarrollar un sistema RAG funcional que:
 
 ---
 
-## 🗂 Estructura del Repositorio
+## Estructura del Repositorio
 
 proyecto-integrador/
 │
