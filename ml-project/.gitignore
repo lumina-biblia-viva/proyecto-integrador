@@ -1,0 +1,26 @@
+# Notebooks
+.ipynb_checkpoints/
+
+# Python
+__pycache__/
+*.pyc
+
+# Data & artifacts
+data/
+artifacts/
+embeddings/
+*.parquet
+*.npz
+*.pkl
+*.joblib
+*.faiss
+*.index
+
+# ML experiment tracking
+mlruns/
+runs/
+
+# Envs / secrets
+.venv/
+env/
+.env
