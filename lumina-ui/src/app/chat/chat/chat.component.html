@@ -1,9 +1,26 @@
 <div class="background-light"></div>
 
-<div class="overlay-sheet d-flex justify-content-center align-items-center">
-  <div class="content text-center">
-    <h1>Bienvenido</h1>
-    <p>Este es el efecto de hoja blanca transparente.</p>
-    <button class="btn btn-primary">Enviar</button>
-  </div>
+<div class="overlay-sheet d-flex">
+	<main class="main-content">
+		<div #conversationContainer class="conversation-container">			
+			<div class="bubble" [ngClass]="msg.class" *ngFor="let msg of messages">
+				{{msg.message}}	
+			</div>				
+		</div>
+
+		<div class="input-container">
+			<div class="input-group">
+				<input 
+					[(ngModel)]="question"
+					class="form-control prompt-input"
+					type="text"
+					(keydown.enter)="sendQuestion()"
+					placeholder="Escribe tu pregunta…"
+				/>
+				<button class="btn btn-primary">
+					<i class="bi bi-send" (click)="sendQuestion()"></i>
+				</button>
+			</div>
+		</div>
+	</main>
 </div>

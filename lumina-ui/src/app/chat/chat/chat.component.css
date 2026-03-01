@@ -7,7 +7,6 @@
     height: 100%;
     background: radial-gradient(circle at center, rgba(0, 123, 255, 0.6), rgba(255, 255, 255, 0.9));
     z-index: -1;
-    /* detrás de todo */
 }
 
 /* Hoja blanca translúcida */
@@ -23,9 +22,65 @@
     /* efecto de vidrio esmerilado */
 }
 
-/* Contenido centrado */
-.content {
-    max-width: 600px;
-    padding: 2rem;
-    border-radius: 8px;
+.conversation-container {
+    width: 50%;
+    margin-left: 25%;
+    flex-direction: column;
+    display: flex;
+    height: 80%;
+    overflow-y: auto;
+    padding: 1em;
+    border: solid 1px #ccc;
+    border-radius: 15px 15px;
+    background-color: ghostwhite;
 }
+
+.main-content {
+    width: 100%;
+    overflow: hidden;
+    padding: 1%;
+}
+
+.input-container {
+    position: fixed;
+    width: 50%;
+    top: 90%;
+    left: 25%;
+}
+
+.prompt-input {
+    width: 80%;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    padding: 12px 14px;
+    font-size: 16px;
+    border-radius: 15px;
+    outline: none;
+}
+
+.form-control,
+.form-control:focus,
+.form-control:focus{
+    border-color: white !important;
+    box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25) !important;
+}
+
+.bubble {
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 20px;
+    max-width: 70%;
+    margin-bottom: 2em;
+}
+
+.b-user {
+    background-color: #0d6efd;
+    color: white;
+    align-self: flex-end;
+}
+
+.b-lumina {
+  background-color: #e9ecef;
+  color: black;
+  align-self: flex-start;
+}
+
