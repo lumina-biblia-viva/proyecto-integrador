@@ -4,7 +4,7 @@
 	<main class="main-content">
 		<div #conversationContainer class="conversation-container">			
 			<div class="bubble" [ngClass]="msg.class" *ngFor="let msg of messages">
-				{{msg.message}}	
+				<markdown [data]="msg.message"></markdown>
 			</div>				
 		</div>
 

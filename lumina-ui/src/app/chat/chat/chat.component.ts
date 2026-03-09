@@ -1,7 +1,8 @@
-import { AfterViewChecked, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewChecked, Component, ElementRef, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
+import { ChatService } from './chat.service';
+import { MarkdownModule } from 'ngx-markdown';
 
 interface Message {
     message: string,
@@ -14,16 +15,18 @@ interface Message {
     templateUrl: './chat.component.html',
     styleUrls: ['./chat.component.css'],
     standalone: true,
-    imports: [CommonModule, FormsModule]
+    imports: [CommonModule, FormsModule, MarkdownModule]
 })
 export class ChatComponent implements OnInit, AfterViewChecked{
     @ViewChild('conversationContainer') conversationContainer!: ElementRef;
 
     public messages: Message[] = [];
     public question: string = "";
-    private dummyMessage = "Vestibulum non ornare nibh, eu volutpat erat. Ut volutpat ex quis facilisis finibus. Cras tempus lacinia tellus eu ullamcorper. Aliquam erat volutpat. Duis maximus risus id sem convallis, vitae finibus tellus consectetur. Quisque at maximus justo, pharetra tincidunt felis. Praesent lobortis tempus lectus, non fermentum mi bibendum sit amet. Maecenas rhoncus vestibulum iaculis. Vestibulum faucibus velit nec ex posuere bibendum. Nam in leo nisi. Fusce consectetur ac mauris id hendrerit. In hac habitasse platea dictumst. Duis aliquam, tortor vel auctor ullamcorper, augue est cursus orci, vitae interdum nisl metus vel nisi. Fusce et ante eget augue volutpat dictum. In nec imperdiet ante, sed egestas lectus. Sed aliquam id velit vel bibendum.";
 
-    constructor() {
+    constructor(
+        private chatService: ChatService,
+        private cdr: ChangeDetectorRef
+    ) {
 
     }
 
@@ -35,8 +38,11 @@ export class ChatComponent implements OnInit, AfterViewChecked{
     }
 
     scrollToBottom() {
-        try {
-            this.conversationContainer.nativeElement.scrollTop = this.conversationContainer.nativeElement.scrollHeight;
+        try {            
+            setTimeout(() => {
+                const el = this.conversationContainer.nativeElement;
+                el.scrollTop = el.scrollHeight;
+            }, 500);
         } catch(err) { 
             console.error(err);
         }
@@ -52,22 +58,26 @@ export class ChatComponent implements OnInit, AfterViewChecked{
                 userType: "user",
                 class: "b-user"
             });
-
-            this.question = "";
         }
 
-        const answer: Message = this.getAnswer()
-
-        if (answer) {
-            this.messages.push(answer);
-        }
+        this.getAnswer(this.question);
+        this.question = "";
     }
 
-    private getAnswer(): Message {
-        return {
-            message: this.dummyMessage + " \n" + this.dummyMessage,
-            userType: "lumina",
-            class: "b-lumina"
-        };
+    private getAnswer(question: string): void {
+        this.chatService.getAnswer(question).subscribe({
+            next: (res) => {
+                console.log(res);
+                this.messages.push({
+                    message: res.reply,
+                    userType: "lumina",
+                    class: "b-lumina"
+                });
+                this.cdr.detectChanges();
+            },
+            error: (err) => {
+                console.error(err);
+            }
+        });
     }
 }
