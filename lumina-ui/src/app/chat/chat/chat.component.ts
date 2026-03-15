@@ -80,4 +80,8 @@ export class ChatComponent implements OnInit, AfterViewChecked{
             }
         });
     }
+
+    public startNewConversation(): void{
+
+    }
 }

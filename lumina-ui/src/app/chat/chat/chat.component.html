@@ -1,23 +1,29 @@
+<nav class="top-navbar d-flex align-items-center justify-content-between">
+	<div class="navbar-logo">
+		<img src="logo_2.png" alt="Logo" />
+	</div>
+	<div class="nav-action" (click)="startNewConversation()">
+		Nueva conversación
+	</div>
+</nav>
+
+
+
 <div class="background-light"></div>
 
 <div class="overlay-sheet d-flex">
 	<main class="main-content">
-		<div #conversationContainer class="conversation-container">			
+		<div #conversationContainer class="conversation-container">
 			<div class="bubble" [ngClass]="msg.class" *ngFor="let msg of messages">
 				<markdown [data]="msg.message"></markdown>
-			</div>				
+			</div>
 		</div>
 
 		<div class="input-container">
 			<div class="input-group">
-				<input 
-					[(ngModel)]="question"
-					class="form-control prompt-input"
-					type="text"
-					(keydown.enter)="sendQuestion()"
-					placeholder="Escribe tu pregunta…"
-				/>
-				<button class="btn btn-primary">
+				<input [(ngModel)]="question" class="form-control prompt-input" type="text"
+					(keydown.enter)="sendQuestion()" placeholder="Escribe tu pregunta…" />
+				<button class="btn btn-lumina-primary">
 					<i class="bi bi-send" (click)="sendQuestion()"></i>
 				</button>
 			</div>

@@ -1,15 +1,13 @@
-/* Fondo azul luminoso */
 .background-light {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at center, rgba(0, 123, 255, 0.6), rgba(255, 255, 255, 0.9));
+    background: radial-gradient(circle at center, rgba(151, 190, 169, 0.6), rgba(255, 255, 255, 0.9));
     z-index: -1;
 }
 
-/* Hoja blanca translúcida */
 .overlay-sheet {
     position: fixed;
     top: 0;
@@ -17,9 +15,7 @@
     width: 100%;
     height: 100%;
     background: rgba(255, 255, 255, 0.7);
-    /* blanco con transparencia */
     backdrop-filter: blur(8px);
-    /* efecto de vidrio esmerilado */
 }
 
 .conversation-container {
@@ -30,9 +26,11 @@
     height: 80%;
     overflow-y: auto;
     padding: 1em;
-    border: solid 1px #ccc;
+    border: solid 1px #cecece;
     border-radius: 15px 15px;
-    background-color: ghostwhite;
+    background-color: white;
+    /*background-color: ghostwhite;*/
+    /*background-color: rgba(253, 238, 207, 0.2);*/
 }
 
 .main-content {
@@ -60,8 +58,8 @@
 .form-control,
 .form-control:focus,
 .form-control:focus{
-    border-color: white !important;
-    box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25) !important;
+    border-color: whitesmoke !important;
+    box-shadow: 0 0 0 0.25rem rgba(253, 238, 207, 0.2) !important;
 }
 
 .bubble {
@@ -73,14 +71,60 @@
 }
 
 .b-user {
-    background-color: #0d6efd;
-    color: white;
+    background-color: #FFCDB8;
+    color: #37260C;
     align-self: flex-end;
 }
 
 .b-lumina {
-  background-color: #e9ecef;
-  color: black;
+  /*background-color: #e9ecef;*/
+  background-color: #FDEECF;
+  color: #37260C;
   align-self: flex-start;
 }
+
+.btn-lumina-primary {
+    background-color: #97BEA9;
+}
+
+.btn-lumina-primary .bi-send{
+    color:white;
+}
+
+.top-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 60px;                 /* Delgada y moderna */
+    width: 100%;
+    background: white;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    padding: 0 2rem;
+    z-index: 10;
+}
+
+.navbar-logo img {
+    height: 40px;
+    object-fit: contain;
+}
+
+.nav-action {
+    font-size: 16px;
+    color: #37260C;
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 10px;
+    transition: all 0.2s ease-in-out;
+}
+
+.nav-action:hover {
+    background-color: #97BEA9;
+    color: white;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.main-content {
+    padding-top: 70px !important;
+}
+
 
